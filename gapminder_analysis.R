@@ -1,4 +1,5 @@
 # written by wes bickford, 2017-01-17
+# covers gapminder and previous work
 
 age <- c(1,3,5,7,9,11,13,15,39,40)
 names <- c("martha", "peter", "jacob", "ruth", "john", "joe", "patrick", "mary", "sarah", "pat")
