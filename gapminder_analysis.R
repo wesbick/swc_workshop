@@ -19,6 +19,8 @@ seq(5,100,5)
 c(1:20) * 5
 
 ##gapminder analysis
+# Notes from SWC Workshop Jan 17th, 2017
+
 
 head(gapminder)
 tail(gapminder)
