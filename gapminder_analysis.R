@@ -21,7 +21,8 @@ c(1:20) * 5
 
 ##gapminder analysis
 # Notes from SWC Workshop Jan 17th, 2017
-
+library(ggplot2)
+gapminder <- read.csv("gapminder-FiveYearData.csv")
 
 head(gapminder)
 tail(gapminder)
@@ -44,11 +45,18 @@ Africa_2007[o, ]
 
 ##publication quality graphics
 
-ggplot(data=gapminder, aes(x = year, y = lifeExp, by = country, color = continent)) +
-	geom_point()
+#create plot with year vs. life expectancy
+ggplot(data=gapminder, aes(x = year, y = lifeExp, color = continent)) +
+	geom_point() +
+  facet_grid(.~continent)
+# save plot
+ggsave("year_vs_lifeExp.png", width = 5, height = 4, units = "in")
+
 	
 ggplot(data=gapminder, aes(x = year, y = lifeExp, by = country, size = gdpPercap, color = continent)) +
-	geom_point()
+	geom_point() + 
+  facet_grid(.~continent)
+
 
 head(gapminder)
 ggplot(data=gapminder, aes(x = gdpPercap, y = lifeExp, by = country, size = pop, color = continent)) +
