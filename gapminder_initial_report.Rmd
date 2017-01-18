@@ -7,6 +7,7 @@ output: html_document
 
 ```{r libraries, echo=F}
 library(ggplot2)
+source("code/gapminder_utilities.R")
 ```
 
 # My first heading of my first Document
@@ -40,5 +41,11 @@ The gapminder dataset contains `r ncol(gapminder)` variables from `r nrow(gapmin
 ggplot(data=gapminder, aes(x = year, y = lifeExp, color = continent)) +
 	geom_point() +
   facet_grid(.~continent)
+```
+
+```{r gdp}
+calcGDP(gapminder, year= 2002, country="China")
+calcGDP(gapminder, country = "China")
+calcGDP(head(gapminder))
 ```
 
