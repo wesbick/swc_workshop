@@ -31,12 +31,12 @@ The number of times computer crashed
 This is an intial report describing changes in life expectancy over the past 60 years as it relates to GDP, country, and continent
 
 ```{r load_data, echo=FALSE}
-gapminder <- read.csv("gapminder-FiveYearData.csv")
+gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 ```
 
 The gapminder dataset contains `r ncol(gapminder)` variables from `r nrow(gapminder)` observations.
 
-```{r, facet_plot, echo=FALSE, fig.height = 3.0, fig.width = 10.5}
+```{r, facet_plot, echo=FALSE, fig.height = 3.0, fig.width = 10.5, fig.path = "figures/"}
 ggplot(data=gapminder, aes(x = year, y = lifeExp, color = continent)) +
 	geom_point() +
   facet_grid(.~continent)
