@@ -48,4 +48,9 @@ calcGDP(gapminder, year= 2002, country="China")
 calcGDP(gapminder, country = "China")
 calcGDP(head(gapminder))
 ```
-
+```{r faceted_by_cont, fig.path = "figures/"}
+gapGDP <- calcGDP(gapminder)
+ggplot(data = gapGDP, aes(x = year, y= gdp, color = continent))+
+  geom_point() +
+  facet_grid(.~continent)
+```
