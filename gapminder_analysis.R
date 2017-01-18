@@ -50,7 +50,7 @@ ggplot(data=gapminder, aes(x = year, y = lifeExp, color = continent)) +
 	geom_point() +
   facet_grid(.~continent)
 # save plot
-ggsave("year_vs_lifeExp.png", width = 5, height = 4, units = "in")
+ggsave("year_vs_lifeExp.png", width = 7, height = 4, units = "in")
 
 	
 ggplot(data=gapminder, aes(x = year, y = lifeExp, by = country, size = gdpPercap, color = continent)) +
