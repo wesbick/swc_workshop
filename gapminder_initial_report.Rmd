@@ -5,26 +5,40 @@ date: "1/18/2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r libraries, echo=F}
+library(ggplot2)
 ```
 
-## R Markdown
+# My first heading of my first Document
+This is the first document I have created in R markdown since 2014. Back then I did not know what I was doing at all, now I know a little more. Maybe like `r sqrt(.05)` more than before. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### What will I get out of using R markdown?
+I want to use R markdown to dhare my data and recent analyses with collaborators and PI's at the *University of Michigan* and *USGS*. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+I think it would be really cool to use markdown for whole papers, but that seems difficult. 
 
-```{r cars}
-summary(cars)
+##### My First Table
+
+I am going to try to creat a table. 
+
+
+The number of times computer crashed 
+
+| Me |  Jill   |
+|:--:|:-------:|
+| 0  | infinty |
+
+This is an intial report describing changes in life expectancy over the past 60 years as it relates to GDP, country, and continent
+
+```{r load_data, echo=FALSE}
+gapminder <- read.csv("gapminder-FiveYearData.csv")
 ```
 
-## Including Plots
+The gapminder dataset contains `r ncol(gapminder)` variables from `r nrow(gapminder)` observations.
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r, facet_plot, echo=FALSE, fig.height = 3.0, fig.width = 10.5}
+ggplot(data=gapminder, aes(x = year, y = lifeExp, color = continent)) +
+	geom_point() +
+  facet_grid(.~continent)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
